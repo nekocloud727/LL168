@@ -1,0 +1,71 @@
+p<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+      <key>PayloadType</key>
+      <string><![CDATA[com.apple.webClip.managed]]></string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+      <key>PayloadIdentifier</key>
+      <string><![CDATA[com.example.webclip.7E9E935F-92D1-4C16-A0FC-EE5528B35FDA]]></string>
+      <key>PayloadUUID</key>
+      <string><![CDATA[62EA1C87-B458-49BA-B1F0-FB406C56AFDA]]></string>
+      <key>PayloadDisplayName</key>
+      <string><![CDATA[LL168]]></string>
+      <key>Label</key>
+      <string><![CDATA[LL168]]></string>
+      <key>URL</key>
+      <string><![CDATA[https://ll168app.vercel.app/]]></string>
+      <key>Icon</key>
+      <data>
+iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAAPFBMVEVHcExB0v9B0f9A0f9B0f9B0f9B0f9B0f9B0v9B0f//64P/64P/6YP/64NB0f//6oOg3cFx1+DP5KKg3sFI/hPUAAAADnRSTlMALeoVgM+1SGWaQL+AgAuSu7oAAAluSURBVHja7Z3bYtsqEEWRDAicxOXy//963DY9dVJfBpiRZoD9mhd7ZzEsI8lWamZmZgY/5/Pb29vHxywC0NOPz5xnHaCefmd2AutpolXQ0yzre0/vj3uay/Cmp48XPf3M3A7PL3n6P+9j9/QBrGnsVfiTpx+FeZvbHTzvsyd4zrOnObKwexpiFSL11L1lwfVp7FUI0vEpDmd0nvocWaU6Pqo41Oj4mCPrTN9TN3vh+4990sXI+tiprC5W4U5ddSEO553K+phlDSYOc2Tx2wz70PePObLYkaUmWaOdOLz1MbI2p7XeTl2UhSYOp+1ailu+V2Uuv7Na/88fxZWF8UoXp+36WYrZbv+iL19jLBFkbwL2wtPmvPlWiLvh6nIvq7lChlwZ85G1bH9x+pq/bNnL4/yEbJFVFhZOt7HPwfpamXco65KjODzG6R5a+gLLanXr8Oe1Ck/LFacV9uY1YBUiQ8ZGHK5SYE3J2/6zDv2lOJWQnTmMrCtOdi1+x75wGd6BrNAwzseuwitO3lS+1z/LcLm0pERjz4dZVh1ON1lU1dBqMIz3A1ZhC0531AHiDjDIXg3/j33Buv3I0pibDzz+gpj1MWTve42sV45ZO95//QvWC3buQrYDWUDHLPz/L88+SeNB9mX470AWyfvQX//n5kKXv4ZBf+iQSd7AtyXiLsT5ZRj0ZQWK1+6+jxN72SFJ5Co0/x4rd1EWCVjbv9u636EskSPL3vtAsHZQFsWLvuuMWn5ZieA1+/t+bcSXRbAK1wcfRpz4siK5j+6nD1HeyDIPzwU24WURrEL3+AjFyy4L37Lss+NpWn3I4lbh9uwok1YfgjRx8M+vEBnBZOGPrBcH5U4wWXFfsIj1IcsaWevLy3yU+pBk7YX69bU9L7Us7JFlIDeVrELL2tFH99CHJEkcLOxGHDJ9EDWyNtgdCU5kWc/FIeaUUslU89CbXazEsh7WFENK5SoGvqFq66SseOWpcrBp+H1UXvwyjDGlhi1zLbjtjEYfaE9o0queSshyJbfoaXllXa30y3hq2TJNSVc0+kB+qowmrkVg0ehDOLwrIFhWFYZAH7IUsLbSsrYOywKC5VVxfH9ltV1W3VcfggywtKoIuj4kEWCZqmdt0PUhiQDLqaq4vsqi8FE6fUgSwNpqy0LWBwlgWVUd309ZQLAaHj5d+imLzEeJ9IE/WGvTU82Y+hD5g6VVU1wfZQVCHyXRh8geLNfYFaI+RO5gWdUcNH3I3MHa2stC04fAHCyvEKLFk0Xuozf6sAona0ew0PQhswZrxfryKxx9SKzB0khdIelD4gyWUWjxgssK+/gosj4kxmBZhRgMfeAM1oZZFoY+MAbLK9Q4oWWF/XwU9ZlgvmBp5K7a9SGyBWvF//5aL7GsvbUBSx8iV7CMIoiWV9ZRYDXrQ2AKllUkadOHzBSsjaasNn0IPMHyRF216UNmCdZK90sBVlJZ4RAfxdGHxBEsQ/mjHV5OWeEwbUDQh8QRLEUaJ6WscKQ2NOsDQ7AscVf1+sAQrIW6rGp94AeWJ++qWh/YgbXSg1WrD5EdWHqHrir1IXIDy5z2KKvuYCtyA8upfWKwy0opRsSDicBBG1rMND8pCltcOfhokz7cpeY3UNhbZuChDQ1mGu+vPAq/4OGjTfpwW1SOhDLGDKwqfYhPgELdMo+5rIqtDyHESH9OH7j4KOq9D0RHz8cfY5E+1IM6sgIjH6V4qAe1LE4+SvFQD+Z8D6x8lOChHsyRxU0b/j/YYviVIoGZj+I/1IM4shhqA5U+7AHWzj5Kpg9xD7CcOiqW13wPDH2USh9y12Ah68MOYNkDu8LVhx3A2o4sC1MfAj1YXh0bw2ZkMbmsuo8+JHKwtDo6lsnIYnNZdRd9IAfLqePjWYws1j6Krg+BGqyNQ1lI+pCIwbIsukL6RjJqsBYeZeHoAzFYXnGJPXhkBf4+iqoPmRYsrfjEHzrfgwQfxdQHWrCc4pRWfYikYFlWXTXrQyYFa+NVVqs+ZEqwvOIWe9R8l+OjWPowFlht+hAJwVpPDMtq0YdACJZWHKOPmO8yjrFQ9SHRgeV4ltWgD3RgWcU1FnW+p5DbwdrYlrXhjazPJ3pyI1he8Y1HIQv87FMQ6KPN+hAfP/yUm8DSinN0226YYomBBZE+2q4P+evig5ElVhvw7314SVYQ6qMU9z68NDDxYO34a2xBro+i3/vwcmQJ9tEbfdhnZAXJPop38QL2CVvQZVXKixegkRVk+yiJPlSDZU5CysLTh1ANlpPSFZ4+5GqwlJx44vkeetAGbH2oBcsqScHRh1gL1iKqLBx9yJVgeSUrjnAzDH34KLI+pDqwtLSuUPShDiw5PoqpD7EOLCevKwR9CFVgWSUxmmYz7MlHb/RhpZjvoTNtwNKHKrAWoWU1PhMcRwKrVR9yBVjrSWxZbfoQKsDScrtq04dUDpZRkqNx53vo0EdR9CGWg2WV7DjMkRW69FEMfcjFYHnpXWH+nEro1UfbD7aKwdLyu6rVh1gKlmQfbdWHXAqW66GrSn3IhWAZ1UccysgaAqxKfSgEy/bSVY0+5EKwtm7KqtCHUAaW76erCn1IRWCtS0dllR9slYGle+qqXB+KwDKnrsoq1YdcBJZTncW0lDWGj9bqQyoBa+uurDJ9KAHL9tdVkT7EErCWDssq0YdcAJbvsasSfQhwsNYuwSo52EpwsLTqNKZmvoehfLTcTCMcLKe6jS0fWWE4bSg00wwGa+u4LKA+JChYvueugPoABmvpuiyQPsQJFlwfMhCs9dR7Wa5kMwxj+miJPiQYWKb/rgD6AATLDVDWS32IMLDsCF29/EayDANrG6KsV/qQQWB5NUgMaL6HkX0Uqg+fZeXRtQGkD58DPo7to1B9yC+7GkMbgPoQ42V4H4Xrwyi3+eGdPgzuo2WnD6P7aNHpw/A+WnL6MNhl1bbTh+mj8NOH4S6rEuiDU0OmSh/MmF3VfSPZNmhZNfpg1bCxEyxCffBq4Pjpo2T6oNXQ0dNHifTBqcHjpjaQ6MM2y9qmNhDowzKrAuvDBAuuD+tpFgXWBz17AuuDmS3B9cHNksD6MH20QB+mj8L1YWpDgT5MH4Xrw9QGuD5MHy3Qh6kNcH2YPlqgDxOse/owfbRZH6aPwvVh+ihcH9bpo3B9mD4K1wczfRSuD1Mb4PowfbRAH6Y2PI+Z070gN2XNMsD+MD/ngNzUXuPnvJqZmfkn/wEwpS1K2OjCnQAAAABJRU5ErkJggg==
+      </data>
+      <key>IsRemovable</key>
+      <true/>
+      <key>FullScreen</key>
+      <true/>
+    </dict>
+    <dict>
+      <key>PayloadType</key>
+      <string><![CDATA[com.apple.security.fake]]></string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+      <key>PayloadIdentifier</key>
+      <string><![CDATA[com.example.dummy.44FF750D-5661-404B-B2E4-C053626DE44F]]></string>
+      <key>PayloadUUID</key>
+      <string><![CDATA[D7309B19-20FC-44A7-826B-94A63654D0D9]]></string>
+      <key>PayloadDisplayName</key>
+      <string><![CDATA[LL168 APP DATA ]]></string>
+      <key>DummyData</key>
+      <string><![CDATA[AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></string>
+    </dict>
+  </array>
+  <key>PayloadDisplayName</key>
+  <string><![CDATA[LL168]]></string>
+  <key>PayloadIdentifier</key>
+  <string><![CDATA[com.example.profile.D028A7A2-01EA-4AAD-AABE-AC956309AFED]]></string>
+  <key>PayloadType</key>
+  <string><![CDATA[Configuration]]></string>
+  <key>PayloadUUID</key>
+  <string><![CDATA[7171437B-7702-44A4-832F-4EC9F8130CB8]]></string>
+  <key>PayloadVersion</key>
+  <integer>1</integer>
+  <key>ConsentText</key>
+  <dict>
+    <key>default</key>
+    <string><![CDATA[Xác nhận cài đặt ứng dụng LL168 (com.ll168-sun.app)]]></string>
+  </dict>
+  <key>PayloadOrganization</key>
+  <string><![CDATA[Admin TTuan - SHOPSUNMEDIA.SITE]]></string>
+  <key>PayloadDescription</key>
+  <string><![CDATA[**LL168 APP** là nền tảng tích hợp nhiều công cụ và tính năng tối ưu dành cho cộng đồng **Free Fire**, được phát triển với mục tiêu mang đến trải nghiệm tiện lợi, hiện đại và tập trung trong **một ứng dụng duy nhất**.
+LL168 được cung cấp **hoàn toàn miễn phí cho cộng đồng**. Chúng tôi không ủy quyền cho bất kỳ cá nhân hay tổ chức nào tự ý thương mại hóa, bán key hoặc thu phí dưới danh nghĩa LL168.
+⚠️ **Lưu ý:** Bất kỳ cá nhân nào sử dụng tên LL168 để **gắn key, bán key hoặc yêu cầu thanh toán** đều không thuộc hệ thống chính thức và có dấu hiệu lừa đảo. Người dùng nên kiểm tra thông tin từ các kênh chính thức trước khi giao dịch.
+### Website chính thức
+**SHOPSUNMEDIA.SITE** – Nền tảng cung cấp các dịch vụ và sản phẩm hỗ trợ cộng đồng Free Fire.
+**LL168 APP – Miễn phí cho cộng đồng.**]]></string>
+</dict>
+</plist>

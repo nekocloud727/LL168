@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+        />
+        <title>LL168 · Tải ứng dụng</title>
+        <!-- Tailwind CSS via CDN (phiên bản 3.4.17) -->
+        <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+        <!-- Font Awesome 6 (miễn phí) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+        <style>
+            /* Tinh chỉnh nhỏ, giữ tương thích với Tailwind */
+            .logo-glow {
+                filter: drop-shadow(0 8px 20px rgba(0, 200, 255, 0.3));
+            }
+            .card-hover {
+                transition: all 0.2s ease-in-out;
+            }
+            .card-hover:active {
+                transform: scale(0.98);
+                opacity: 0.9;
+            }
+            /* Modal backdrop mờ */
+            .modal-backdrop {
+                background-color: rgba(0, 0, 0, 0.6);
+                backdrop-filter: blur(4px);
+            }
+            /* Custom scrollbar cho version list (nếu cần) */
+            .version-scroll::-webkit-scrollbar {
+                width: 4px;
+            }
+            .version-scroll::-webkit-scrollbar-thumb {
+                background: #cbd5e1;
+                border-radius: 8px;
+            }
+            /* Đảm bảo nút tải là thẻ <a> có thể click toàn bộ */
+            .download-link {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                width: 100%;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body
+        class="bg-gradient-to-b from-slate-900 to-slate-800 text-gray-100 font-sans antialiased flex items-start justify-center min-h-screen p-4"
+    >
+        <!-- Modal thông báo khi mới vào (hiển thị mặc định, có nút đóng) -->
+        <div
+            id="noticeModal"
+            class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop transition-opacity duration-300"
+        >
+            <div
+                class="bg-white text-gray-800 w-full max-w-sm rounded-2xl shadow-2xl overflow-hidden border border-white/20 transform transition-all duration-300 scale-100"
+            >
+                <!-- Header modal với gradient -->
+                <div class="bg-gradient-to-r from-blue-600 to-indigo-700 px-6 py-4 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-bullhorn text-white text-lg"></i>
+                        <h3 class="text-white font-semibold text-lg">Thông báo</h3>
+                    </div>
+                    <button
+                        id="closeModalBtn"
+                        class="text-white/80 hover:text-white focus:outline-none text-2xl leading-none"
+                    >
+                        &times;
+                    </button>
+                </div>
+                <!-- Nội dung modal -->
+                <div class="px-6 py-5 space-y-3">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-rocket text-blue-600"></i>
+                        </div>
+                        <p class="text-gray-700 text-base font-medium">
+                            Chào mừng bạn đến với <span class="font-bold text-blue-700">LL168</span>!
+                        </p>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        📱 Phiên bản mới <span class="font-semibold text-indigo-600">v1.0.0</span> đã có mặt với nhiều
+                        tính năng hấp dẫn. Vui lòng tải ứng dụng để trải nghiệm.
+                    </p>
+
+                    <!-- Đối tác uy tín -->
+                    <div class="bg-indigo-50 rounded-lg p-3 border border-indigo-200 flex items-start gap-2">
+                        <i class="fas fa-handshake text-indigo-500 mt-0.5"></i>
+                        <div class="text-xs text-indigo-800">
+                            <span class="font-semibold">Đối tác uy tín:</span>
+                            <a
+                                href="https://shopsunmedia.site"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="font-bold text-indigo-600 underline hover:text-indigo-800 transition-colors"
+                            >
+                                SHOPSUNMEDIA.SITE
+                            </a>
+                            <span class="block mt-0.5 text-indigo-600/80"
+                                >Được LL168 tin tưởng hợp tác và giới thiệu.</span
+                            >
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 rounded-lg p-3 border border-amber-200 flex items-start gap-2 mt-2">
+                        <i class="fas fa-info-circle text-amber-500 mt-0.5"></i>
+                        <span class="text-xs text-amber-800"
+                            >Bạn có thể xem chi tiết từng phiên bản bên dưới. Chúc bạn chơi game vui vẻ!</span
+                        >
+                    </div>
+                </div>
+                <!-- Nút hành động -->
+                <div class="px-6 pb-5 pt-1">
+                    <button
+                        id="confirmModalBtn"
+                        class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 rounded-xl shadow-md transition duration-200 text-sm tracking-wide"
+                    >
+                        ĐÃ HIỂU
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nội dung chính (sau khi đóng modal vẫn tương tác được) -->
+        <main class="w-full max-w-md mx-auto">
+            <!-- Logo + tên app -->
+            <div class="flex flex-col items-center mt-6 mb-5">
+                <div class="relative">
+                    <!-- Logo dạng vòng tròn với ảnh -->
+                    <div
+                        class="w-24 h-24 rounded-full bg-gradient-to-br from-indigo-500 via-blue-500 to-cyan-400 flex items-center justify-center shadow-2xl logo-glow border-4 border-white/20 overflow-hidden"
+                    >
+                        <!-- Thay đường dẫn ảnh bên dưới bằng logo của bạn -->
+                        <img src="./logo.png" alt="LL168 Logo" class="w-full h-full object-cover" />
+                    </div>
+                    <div
+                        class="absolute -bottom-1 -right-1 bg-yellow-400 text-slate-900 text-xs font-bold px-2 py-0.5 rounded-full shadow-md"
+                    >
+                        168
+                    </div>
+                </div>
+                <h1
+                    class="text-3xl font-extrabold mt-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-indigo-200"
+                >
+                    LL168
+                </h1>
+                <p class="text-sm text-gray-400 mt-1">Giải trí đỉnh cao · An toàn &amp; nhanh chóng</p>
+            </div>
+
+            <!-- Phiên bản cập nhật - Android -->
+            <div
+                class="bg-slate-800/80 rounded-2xl p-5 mb-4 border border-slate-700 shadow-xl backdrop-blur-sm card-hover"
+            >
+                <div class="flex items-start justify-between">
+                    <div class="flex items-center gap-3">
+                        <!-- Icon Android -->
+                        <div
+                            class="w-10 h-10 rounded-full bg-green-900/50 flex items-center justify-center text-green-400 text-xl"
+                        >
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold text-white">Android</h2>
+                            <p class="text-xs text-gray-400">APK · Dung lượng thấp</p>
+                        </div>
+                    </div>
+                    <span
+                        class="bg-green-500/20 text-green-300 text-xs font-semibold px-2.5 py-1 rounded-full border border-green-500/30"
+                        >Ổn định</span
+                    >
+                </div>
+
+                <!-- Thông tin phiên bản cụ thể -->
+                <div class="mt-4 space-y-3">
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-400">Phiên bản mới nhất</span>
+                        <span class="font-mono font-bold text-white bg-slate-700 px-2 py-0.5 rounded">v1.0.0</span>
+                    </div>
+                    <div class="flex items-center justify-between text-xs text-gray-400 border-b border-slate-700 pb-2">
+                        <span><i class="far fa-calendar-alt mr-1"></i> 15/09/2026</span>
+                        <span><i class="fas fa-shield-alt mr-1"></i> Ký số an toàn</span>
+                    </div>
+                    <!-- Ghi chú cập nhật -->
+                    <div class="text-xs text-gray-300 bg-slate-900/60 p-2.5 rounded-lg border border-slate-700">
+                        <span class="font-semibold text-blue-300">Cập nhật:</span> Tối ưu tốc độ tải, sửa lỗi đăng nhập.
+                    </div>
+                </div>
+
+                <!-- Nút tải Android -> chuyển đến nơi lưu trữ file -->
+                <a
+                    href="./app/LL168.apk"
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="download-link mt-4 w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg transition duration-200 active:scale-[0.98]"
+                >
+                    <i class="fas fa-download text-lg"></i> TẢI NGAY (APK)
+                </a>
+                <p class="text-[10px] text-gray-500 text-center mt-2">Hỗ trợ Android 8.0 trở lên · Không quảng cáo</p>
+            </div>
+
+            <!-- Phiên bản cập nhật - iOS -->
+            <div
+                class="bg-slate-800/80 rounded-2xl p-5 mb-4 border border-slate-700 shadow-xl backdrop-blur-sm card-hover"
+            >
+                <div class="flex items-start justify-between">
+                    <div class="flex items-center gap-3">
+                        <!-- Icon iOS -->
+                        <div
+                            class="w-10 h-10 rounded-full bg-blue-900/50 flex items-center justify-center text-blue-300 text-xl"
+                        >
+                            <i class="fab fa-apple"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold text-white">iOS</h2>
+                            <p class="text-xs text-gray-400">APP · Dung lượng thấp</p>
+                        </div>
+                    </div>
+                    <span
+                        class="bg-blue-500/20 text-blue-300 text-xs font-semibold px-2.5 py-1 rounded-full border border-blue-500/30"
+                        >Mới</span
+                    >
+                </div>
+
+                <div class="mt-4 space-y-3">
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-400">Phiên bản mới nhất</span>
+                        <span class="font-mono font-bold text-white bg-slate-700 px-2 py-0.5 rounded">v1.0.0</span>
+                    </div>
+                    <div class="flex items-center justify-between text-xs text-gray-400 border-b border-slate-700 pb-2">
+                        <span><i class="far fa-calendar-alt mr-1"></i> 15/09/2026</span>
+                        <span><i class="fas fa-mobile-alt mr-1"></i> Full iOS</span>
+                    </div>
+                    <div class="text-xs text-gray-300 bg-slate-900/60 p-2.5 rounded-lg border border-slate-700">
+                        <span class="font-semibold text-blue-300">Cập nhật:</span> -
+                    </div>
+                </div>
+
+                <!-- Nút tải iOS -> chuyển đến nơi lưu trữ file (IPA hoặc link TestFlight/AppStore) -->
+                <a
+                    href="./app/LL168_APP_iOS.mobileconfig"
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="download-link mt-4 w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg transition duration-200 active:scale-[0.98]"
+                >
+                    <i class="fab fa-apple text-lg"></i> TẢI NGAY
+                </a>
+                <p class="text-[10px] text-gray-500 text-center mt-2">Tương thích trên mọi loại iPhone/iPad</p>
+            </div>
+
+            <!-- Lịch sử phiên bản (các mục ghi rõ phiên bản cập nhật) -->
+            <div class="bg-slate-800/50 rounded-2xl p-5 border border-slate-700/80 mb-6">
+                <div class="flex items-center gap-2 mb-4">
+                    <i class="fas fa-history text-indigo-400"></i>
+                    <h3 class="text-md font-semibold text-white">Lịch sử cập nhật gần đây</h3>
+                </div>
+                <!-- Danh sách phiên bản -->
+                <div class="space-y-4 max-h-52 overflow-y-auto pr-1 version-scroll">
+                    <!-- Item 4 -->
+                    <div class="flex gap-3 items-start">
+                        <div
+                            class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-gray-300 text-xs font-bold flex-shrink-0"
+                        >
+                            1.0
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-semibold text-white">v1.0.0</span>
+                                <span class="text-[10px] text-gray-500">15/09/2026</span>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-0.5">Ra mắt phiên bản đầu tiên, ổn định hệ thống.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer nhỏ -->
+            <p class="text-center text-[10px] text-gray-600 mb-4">© 2025 LL168 · Tất cả các quyền được bảo lưu.</p>
+        </main>
+
+        <script>
+            // Xử lý modal thông báo (hiển thị mặc định khi load trang)
+            (function () {
+                const modal = document.getElementById("noticeModal");
+                const closeBtn = document.getElementById("closeModalBtn");
+                const confirmBtn = document.getElementById("confirmModalBtn");
+
+                // Hàm đóng modal
+                function closeModal() {
+                    modal.classList.add("opacity-0", "pointer-events-none");
+                    // Không xóa hẳn, chỉ ẩn mượt
+                    setTimeout(() => {
+                        modal.style.display = "none";
+                    }, 250);
+                }
+
+                // Gắn sự kiện
+                closeBtn.addEventListener("click", closeModal);
+                confirmBtn.addEventListener("click", closeModal);
+
+                // Click ra ngoài vùng modal (vào backdrop) cũng đóng
+                modal.addEventListener("click", function (e) {
+                    if (e.target === modal) {
+                        closeModal();
+                    }
+                });
+
+                // Vẫn giữ modal hiển thị khi mới vào, không tự động đóng
+                // (không gọi closeModal ngay)
+            })();
+        </script>
+    </body>
+</html>
